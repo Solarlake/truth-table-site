@@ -73,7 +73,8 @@ var sketch = function(p) {
     
     let colors = {
         main: "#d3d3d3",
-        secondary: "#383232"
+        secondary: "#383232",
+        white: "#ffffff"
     }
     
     p.setup = function() {
@@ -107,10 +108,12 @@ var sketch = function(p) {
         for (let i = 0; i < degs.length/2; i++) {
             smallCircles[i] = new smallCircle(
                 backgroundCircles[p.round(p.random(0, backgroundCircles.length - 1))],
-                degs[p.round(p.random(0, degs.length - 1))],
+                p.random(-90, 90),
                 p.random(10, 30) //15
             )
         }
+
+        img = p.loadImage("assets/background.png")
     }
     
     p.draw = function() {
@@ -119,8 +122,8 @@ var sketch = function(p) {
     
     function drawBackground() {
         //draw the circles
-        p.background(colors.main)
-        p.fill(colors.main)
+        p.background(colors.white)
+        p.noFill()
         p.stroke(colors.secondary)
         p.strokeWeight(1)
         for (let i = 0; i < backgroundCircles.length; i++) {
@@ -132,6 +135,7 @@ var sketch = function(p) {
             backgroundLines[i].display()
         }
 
+        p.fill(colors.white)
         //draw the circles on the circles
         p.circle(backgroundCircles[4].x, backgroundCircles[4].y, 25)
         
@@ -139,6 +143,9 @@ var sketch = function(p) {
             smallCircles[i].display()
             smallCircles[i].approach()
         }
+        p.blendMode(p.MULTIPLY)
+        p.image(img, 0, 0)
+        p.blendMode(p.NORMAL)
     }
 }
 

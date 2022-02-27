@@ -70,7 +70,8 @@ var grid = function(p) {
     let colors = {
         main: "#d3d3d3",
         secondary: "#383232",
-        secondary_light: "#aaaaaa"
+        secondary_light: "#aaaaaa",
+        white: "#ffffff"
     }
 
     p.setup = function() {
@@ -97,7 +98,7 @@ var grid = function(p) {
     }
     
     p.draw = function() {
-        p.background(colors.main)
+        p.background(colors.white)
 
         //draw circles n stuff
         p.stroke(colors.secondary_light)
@@ -117,11 +118,14 @@ var grid = function(p) {
             wireCircles[i].display()
         }
 
-        p.fill(colors.main)
+        p.fill(colors.white)
         for (let i = 0; i < fillCircles.length; i++) {
             fillCircles[i].display()
             fillCircles[i].approach()
         }
+        p.blendMode(p.MULTIPLY)
+        p.image(img, -300, -200)
+        p.blendMode(p.NORMAL)
     }
 }
 
