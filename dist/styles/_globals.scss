@@ -5,6 +5,37 @@
     overflow: hidden;
 }
 
+.cursor-base {
+    position: fixed;
+    width: 0px;
+    height: 0px;
+    pointer-events: none;
+    transform-origin: center;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    z-index: 9999999;
+    mix-blend-mode: difference;
+    .cursor-fill {
+        transition: opacity 0.5s cubic-bezier(0.33, 1, 0.68, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1), border-radius 0.3s cubic-bezier(0.61, 1, 0.88, 1);
+        width: 10px;
+        height: 10px;
+        background: #ffffff;
+        border-radius: 0%;
+        opacity: 1;
+        transform: scale(1) rotate(45deg);
+        &.cursor-hide {
+            opacity: 0;
+            transform: scale(0) rotate(45deg);
+        }
+        &.cursor-large {
+            transition: opacity 0.5s cubic-bezier(0.33, 1, 0.68, 1), transform 0.5s cubic-bezier(0.33, 1, 0.68, 1), border-radius 0.3s cubic-bezier(0.61, 1, 0.88, 1);
+            transform: scale(5) rotate(270deg);
+            border-radius: 50%;
+        }
+    }
+}
+
 body {
     font-family: Helvetica;
 
@@ -12,10 +43,17 @@ body {
         color: #383232;
     }
 
+    .gradient {
+        position: absolute;
+        background: linear-gradient(180deg, #c6ffdd, #fbd786, #f7797d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        width: 0.25vw;
+        height: 100vh;
+    }
+
     .header {
         font-size: 8rem;
         position: absolute;
-        bottom: 10vh;
+        bottom: 7.5vh;
         left: 13vw;
     }
 
@@ -40,7 +78,7 @@ body {
         display: flex;
         flex-direction: column;
         position: absolute;
-        top: 38.75vh;
+        top: 38.5vh;
         left: 22.6vw;
         width: 9vw;
 
@@ -57,7 +95,6 @@ body {
                 font-size: 1rem;
                 font-weight: bold;
                 color: #383232;
-                
             }
         }
     }
@@ -73,15 +110,19 @@ body {
         align-items: center;
 
         div {
-            margin: 1rem 0;
+            margin: 0.3rem 0;
         }
 
         .form {
+            width: 39.4vw;
+            display: flex;
+            justify-content: space-between;
+
             input {
                 color: #383232;
                 font-family: Helvetica;
                 font-size: 1rem;
-                width: 39.4vw;
+                width: 35vw;
                 height: 4vh;
                 border: hidden 1px;
                 background-color: #eeeeee;
@@ -93,6 +134,19 @@ body {
                     outline: none;
                     background-color: #ffffff;
                     border: solid 1px;
+                }
+            }
+
+            button {
+                color: #383232;
+                border: hidden;
+                padding: 0.5rem;
+                background-color: #eeeeee;
+                mix-blend-mode: multiply;
+                transition: all 0.1s ease-in-out;
+
+                &:active {
+                    background-color: #ffffff;
                 }
             }
         }
