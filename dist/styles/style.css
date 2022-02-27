@@ -39,6 +39,116 @@ body main canvas {
   display: block;
 }
 
+body .key-grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: absolute;
+  top: 38.75vh;
+  left: 22.6vw;
+  width: 9vw;
+}
+
+body .key-grid .element-01 {
+  border-top: #383232 solid 2px;
+}
+
+body .key-grid ul {
+  padding: 0.5rem 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: #383232 solid 2px;
+}
+
+body .key-grid ul li {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #383232;
+}
+
+body .output-container {
+  position: absolute;
+  width: 40vw;
+  height: 100vh;
+  left: 42.75vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .output-container div {
+  margin: 1rem 0;
+}
+
+body .output-container .form input {
+  color: #383232;
+  font-family: Helvetica;
+  font-size: 1rem;
+  width: 39.4vw;
+  height: 4vh;
+  border: hidden 1px;
+  background-color: #eeeeee;
+  mix-blend-mode: multiply;
+  padding: 0.5rem;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+body .output-container .form input:focus {
+  outline: none;
+  background-color: #ffffff;
+  border: solid 1px;
+}
+
+body .output-container .output-grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: #383232 solid 0.5px;
+}
+
+body .output-container .output-grid .grid-header li {
+  font-weight: bold;
+}
+
+body .output-container .output-grid ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body .output-container .output-grid ul li {
+  border: #383232 solid 0.5px;
+  padding: 0.5rem 3rem;
+  font-size: 1rem;
+  color: #383232;
+}
+
 #defaultCanvas1 {
   position: absolute;
   top: 25%;

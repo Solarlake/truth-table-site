@@ -21,10 +21,6 @@ var sketch = function(p) {
             let vec = p.createVector(this.x + p.cos(rad)*this.r, this.y - p.sin(rad)*this.r)
             return vec
         }
-
-        setGoal(g) {
-            this.goal = g
-        }
     }
 
     class smallCircle {
@@ -32,7 +28,7 @@ var sketch = function(p) {
             this.parent = parent
             this.goal = goal
             this.r = r
-            this.currentDeg = -135
+            this.currentDeg = p.random(-135, -90)
         }
     
         display() {
@@ -48,6 +44,10 @@ var sketch = function(p) {
             } else if (this.goal - this.currentDeg < -stopThreshold) {
                 this.currentDeg = this.currentDeg - p.abs(this.goal - this.currentDeg) * approachFactor
             }
+        }
+
+        updateGoal() {
+            this.goal += (5 * 1/60)
         }
     }
     
@@ -100,15 +100,15 @@ var sketch = function(p) {
     
         //create the lines
         backgroundLines = []
-        backgroundLines[0] = new Line(0, height/2, startX + 130, height/2)
+        backgroundLines[0] = new Line(0, height/2, startX + 150, height/2)
 
         //create small circles
         smallCircles = []
         degs = [65, 35, 10, 80, 60, 70, 20, 50, 30, -65, -35, -10, -80, -60, -70, -20, -50, -30]
-        for (let i = 0; i < degs.length/2; i++) {
+        for (let i = 0; i < degs.length; i++) {
             smallCircles[i] = new smallCircle(
                 backgroundCircles[p.round(p.random(0, backgroundCircles.length - 1))],
-                p.random(-90, 90),
+                p.random(-180, 180),
                 p.random(10, 30) //15
             )
         }
@@ -142,10 +142,27 @@ var sketch = function(p) {
         for (let i = 0; i < smallCircles.length; i++) {
             smallCircles[i].display()
             smallCircles[i].approach()
+            smallCircles[i].updateGoal()
         }
+        
+        p.strokeWeight(2)
+        p.fill(colors.secondary)
+        p.rect(width*0.869, height*0.76, 10, 20)
+        p.noFill()
+        p.rect(width*0.858, height*0.76, 20, 20)
+        p.fill(colors.secondary)
+        p.rect(width*0.837, height*0.76, 40, 20)
+        p.noFill()
+        p.rect(width*0.796, height*0.76, 80, 20)
+        p.fill(colors.secondary)
+        p.rect(width*0.712, height*0.76, 160, 20)
+        p.strokeWeight(1)
+
         p.blendMode(p.MULTIPLY)
         p.image(img, 0, 0)
-        p.blendMode(p.NORMAL)
+        p.blendMode(p.BLEND)
+
+        
     }
 }
 

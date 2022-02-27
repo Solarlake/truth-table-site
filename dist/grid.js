@@ -74,6 +74,9 @@ var grid = function(p) {
         white: "#ffffff"
     }
 
+    let width
+    let height
+
     p.setup = function() {
         width = p.windowWidth * 0.75
         height = p.windowHeight * 0.5
@@ -108,7 +111,7 @@ var grid = function(p) {
         //draw box
         p.noFill()
         p.stroke(colors.secondary)
-        p.strokeWeight(8)
+        p.strokeWeight(6)
         p.rect(0, 0, width, height)
     }
 
@@ -125,7 +128,7 @@ var grid = function(p) {
         }
         p.blendMode(p.MULTIPLY)
         p.image(img, -300, -200)
-        p.blendMode(p.NORMAL)
+        p.blendMode(p.BLEND)
     }
 }
 

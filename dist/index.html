@@ -7,9 +7,6 @@
         <title>THE TABLE</title>
 
         <link rel="stylesheet" type="text/css" href="styles/style.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
 
         <script src="libraries/p5.min.js"></script>
         <!-- <script src="libraries/p5.sound.min.js"></script> -->
@@ -18,6 +15,84 @@
     <body>
         <h1 class="header">I. Truth Table</h1>
         <h1 class="sub-header">I. A representation of a statement's dependency on its constituent statements</h2>
+        <div class="key-grid">
+            <ul class="element-01">
+                <li>and</li>
+                <li>&&</li>
+            </ul>
+            <ul>
+                <li>or</li>
+                <li>||</li>
+            </ul>
+            <ul>
+                <li>not</li>
+                <li>!</li>
+            </ul>
+            <ul>
+                <li>xor</li>
+                <li>xor</li>
+            </ul>
+            <ul>
+                <li>implication</li>
+                <li>></li>
+            </ul>
+            <ul>
+                <li>equivalence</li>
+                <li>=</li>
+            </ul>
+        </div>
+        <div class="output-container">
+            <div class="form">
+                <input type="text" name="statement" placeholder="!(A & B) = !A | !B">
+            </div>
+            <div class="output-grid">
+                <ul class="grid-header">
+                    <li>p</li>
+                    <li>q</li>
+                    <li>?</li>
+                    <li>?</li>
+                    <li>?</li>
+                    <li>?</li>
+                    <li>?</li>
+                </ul>
+                <ul>
+                    <li>T</li>
+                    <li>T</li>
+                    <li>T</li>
+                    <li>F</li>
+                    <li>T</li>
+                    <li>T</li>
+                    <li>F</li>
+                </ul>
+                <ul>
+                    <li>T</li>
+                    <li>F</li>
+                    <li>F</li>
+                    <li>T</li>
+                    <li>T</li>
+                    <li>F</li>
+                    <li>F</li>
+                </ul>
+                <ul>
+                    <li>F</li>
+                    <li>T</li>
+                    <li>T</li>
+                    <li>F</li>
+                    <li>T</li>
+                    <li>T</li>
+                    <li>F</li>
+                </ul>
+                <ul>
+                    <li>F</li>
+                    <li>F</li>
+                    <li>T</li>
+                    <li>T</li>
+                    <li>F</li>
+                    <li>T</li>
+                    <li>T</li>
+                </ul>
+            </div>
+        </div>
         <script src="sketch.js"></script>
         <script src="grid.js"></script>
     </body>
