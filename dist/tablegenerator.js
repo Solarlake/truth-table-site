@@ -55,8 +55,117 @@ function initArray(){
 /**
  * Adds a given parantheses-closed solvable statement relationship (ex: p V q) to
  * the next open column in the array
- * TODO: actually do this lmao
+ * TODO: somehow check this??
+ * @param str 3 long array to add
  */
-function addSolvable(){
+function addSolvable(solvable){
+    // below code assumes that solvables are reduced
+    // to one relationship symbol only
+    indexP = tableRows[0].indexOf(solvable[0]);
+    indexQ = tableRows[0].indexOf(solvable[2]);
+    relation = tableRows[1];
 
+    if(relation === "&&"){ // is AND
+        tableRows[0][colsHeader.length] = solvable; // add new column
+        for(let i = 1; i < tableRows.length; i++){
+            // get values of p and q
+            p = (tableRows[i][indexP] === "T"); // should be 1 or 0
+            q = (tableRows[i][indexQ] === "T"); // should be 1 or 0
+
+            // if there is a ! NOT, invert it
+            if(solvable[0].includes("!")){ // for p
+                p--; // should be 0 or -1
+            }
+            if(solvable[2].includes("!")){ // for q
+                p--; // should be 0 or -1
+            }
+
+            // assign value for this row,col based on p and q
+            tableRows[i][colsHeader.length - 1] = (p && q);
+
+        }
+    }
+    else if(relation === "||"){ // is OR
+        tableRows[0][colsHeader.length] = solvable; // add new column
+        for(let i = 1; i < tableRows.length; i++){
+            // get values of p and q
+            p = (tableRows[i][indexP] === "T"); // should be 1 or 0
+            q = (tableRows[i][indexQ] === "T"); // should be 1 or 0
+
+            // if there is a ! NOT, invert it
+            if(solvable[0].includes("!")){ // for p
+                p--; // should be 0 or -1
+            }
+            if(solvable[2].includes("!")){ // for q
+                p--; // should be 0 or -1
+            }
+
+            // assign value for this row,col based on p and q
+            tableRows[i][colsHeader.length - 1] = (p || q);
+
+        }
+    }
+    else if(relation === "xor"){ // is EXCLUSIVE OR
+        tableRows[0][colsHeader.length] = solvable; // add new column
+        for(let i = 1; i < tableRows.length; i++){
+            // get values of p and q
+            p = (tableRows[i][indexP] === "T"); // should be 1 or 0
+            q = (tableRows[i][indexQ] === "T"); // should be 1 or 0
+
+            // if there is a ! NOT, invert it
+            if(solvable[0].includes("!")){ // for p
+                p--; // should be 0 or -1
+            }
+            if(solvable[2].includes("!")){ // for q
+                p--; // should be 0 or -1
+            }
+
+            // assign value for this row,col based on p and q
+            tableRows[i][colsHeader.length - 1] = ((p && !q) || (!p && q));
+
+        }
+    }
+    else if(relation === ">"){ // is CONDITIONAL
+        tableRows[0][colsHeader.length] = solvable; // add new column
+        for(let i = 1; i < tableRows.length; i++){
+            // get values of p and q
+            p = (tableRows[i][indexP] === "T"); // should be 1 or 0
+            q = (tableRows[i][indexQ] === "T"); // should be 1 or 0
+
+            // if there is a ! NOT, invert it
+            if(solvable[0].includes("!")){ // for p
+                p--; // should be 0 or -1
+            }
+            if(solvable[2].includes("!")){ // for q
+                p--; // should be 0 or -1
+            }
+
+            // assign value for this row,col based on p and q
+            tableRows[i][colsHeader.length - 1] = ((p && q) || (!p && q) || (!p && !q));
+
+        }
+    }
+    else if(relation === "<>"){ // is BICONDITIONAL
+        tableRows[0][colsHeader.length] = solvable; // add new column
+        for(let i = 1; i < tableRows.length; i++){
+            // get values of p and q
+            p = (tableRows[i][indexP] === "T"); // should be 1 or 0
+            q = (tableRows[i][indexQ] === "T"); // should be 1 or 0
+
+            // if there is a ! NOT, invert it
+            if(solvable[0].includes("!")){ // for p
+                p--; // should be 0 or -1
+            }
+            if(solvable[2].includes("!")){ // for q
+                p--; // should be 0 or -1
+            }
+
+            // assign value for this row,col based on p and q
+            tableRows[i][colsHeader.length - 1] = ((p && q) || (!p && !q));
+
+        }
+    }
+    // else: do nothing
+
+    
 }
