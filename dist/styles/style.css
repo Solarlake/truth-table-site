@@ -1,0 +1,47 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  font-family: Helvetica;
+}
+
+body h1 {
+  color: #383232;
+}
+
+body .header {
+  font-size: 8rem;
+  position: absolute;
+  bottom: 10vh;
+  left: 13vw;
+}
+
+body .sub-header {
+  font-size: 1rem;
+  position: absolute;
+  top: 22.5vh;
+  left: 13vw;
+}
+
+body main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+body main canvas {
+  display: block;
+}
+
+#defaultCanvas1 {
+  position: absolute;
+  top: 25%;
+  left: 12.5%;
+}
+/*# sourceMappingURL=style.css.map */
