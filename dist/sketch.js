@@ -113,6 +113,7 @@ var sketch = function(p) {
             )
         }
 
+        //preload background image
         img = p.loadImage("assets/background.png")
     }
     
@@ -145,6 +146,7 @@ var sketch = function(p) {
             smallCircles[i].updateGoal()
         }
         
+        //draw weird rectangle thing
         p.strokeWeight(2)
         p.fill(colors.secondary)
         p.rect(width*0.869, height*0.76, 10, 20)
@@ -158,6 +160,18 @@ var sketch = function(p) {
         p.rect(width*0.712, height*0.76, 160, 20)
         p.strokeWeight(1)
 
+        p.push()
+        p.translate(width*0.816 + 90/2, height*0.75 + 90/2)
+        p.rotate(p.radians(45))
+        p.rect(0, 0, 90, 17)
+        p.rotate(p.radians(-45))
+        p.rect(-11.25, 63, 75, 17)
+        p.rect(50, 0, 17, 80)
+        p.circle(-60, 40, 80)
+        p.pop()
+
+
+        //make the background the png
         p.blendMode(p.MULTIPLY)
         p.image(img, 0, 0)
         p.blendMode(p.BLEND)

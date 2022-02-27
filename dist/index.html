@@ -13,8 +13,12 @@
     </head>
 
     <body>
+        <div class="cursor-base">
+            <div class="cursor-fill cursor-hide"></div>
+        </div>
         <h1 class="header">I. Truth Table</h1>
         <h1 class="sub-header">I. A representation of a statement's dependency on its constituent statements</h2>
+        <div class="gradient"></div>
         <div class="key-grid">
             <ul class="element-01">
                 <li>and</li>
@@ -33,17 +37,18 @@
                 <li>xor</li>
             </ul>
             <ul>
-                <li>implication</li>
+                <li>conditional</li>
                 <li>></li>
             </ul>
             <ul>
-                <li>equivalence</li>
-                <li>=</li>
+                <li>biconditional</li>
+                <li>&lt;&gt;</li>
             </ul>
         </div>
         <div class="output-container">
             <div class="form">
-                <input type="text" name="statement" placeholder="!(A & B) = !A | !B">
+                <input class="input-box" type="text" name="statement" placeholder="!(A && B) = !A || !B">
+                <button class="submit-button">Generate</button>
             </div>
             <div class="output-grid">
                 <ul class="grid-header">
@@ -95,5 +100,6 @@
         </div>
         <script src="sketch.js"></script>
         <script src="grid.js"></script>
+        <script src="cursor.js"></script>
     </body>
 </html>
