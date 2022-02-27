@@ -5,38 +5,12 @@
     overflow: hidden;
 }
 
-.cursor-base {
-    position: fixed;
-    width: 0px;
-    height: 0px;
-    pointer-events: none;
-    transform-origin: center;
-    top: 0;
-    left: 0;
-    opacity: 1;
-    z-index: 9999999;
-    mix-blend-mode: difference;
-    .cursor-fill {
-        transition: opacity 0.5s cubic-bezier(0.33, 1, 0.68, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1), border-radius 0.3s cubic-bezier(0.61, 1, 0.88, 1);
-        width: 10px;
-        height: 10px;
-        background: #ffffff;
-        border-radius: 0%;
-        opacity: 1;
-        transform: scale(1) rotate(45deg);
-        &.cursor-hide {
-            opacity: 0;
-            transform: scale(0) rotate(45deg);
-        }
-        &.cursor-large {
-            transition: opacity 0.5s cubic-bezier(0.33, 1, 0.68, 1), transform 0.5s cubic-bezier(0.33, 1, 0.68, 1), border-radius 0.3s cubic-bezier(0.61, 1, 0.88, 1);
-            transform: scale(5) rotate(270deg);
-            border-radius: 50%;
-        }
-    }
-}
-
 body {
+    ::selection {
+        background-color: #383232;
+        color: #d3d3d3;
+    }
+
     font-family: Helvetica;
 
     h1 {
@@ -183,3 +157,4 @@ body {
     top: 25%;
     left: 12.5%; //50% - (widthscale/2)
 }
+

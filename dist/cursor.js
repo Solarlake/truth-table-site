@@ -33,3 +33,7 @@ let animateCursor = () => {
 
     cursor.style.transform = "translate3d(" + currentX + "px, " + currentY + "px, 0)";
 }
+
+document.addEventListener("DOMContentLoaded", (e) => {
+    animateCursor();
+});
