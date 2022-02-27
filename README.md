@@ -1,2 +1,2 @@
 # truth-table-site
-https://distracted-wozniak-7e117b.netlify.app/
+http://the-table.netlify.app/
