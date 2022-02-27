@@ -28,7 +28,6 @@ body .gradient {
   position: absolute;
   background: -webkit-gradient(linear, left top, left bottom, from(#c6ffdd), color-stop(#fbd786), to(#f7797d));
   background: linear-gradient(180deg, #c6ffdd, #fbd786, #f7797d);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   width: 0.25vw;
   height: 100vh;
 }
